@@ -1,0 +1,40 @@
+
+
+  
+  <div class="search-field">
+    
+  
+      <mat-form-field class="example-full-width">
+          <mat-label>Type here !</mat-label>
+          <input matInput  (keyup)="OnInput($event)" >
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" (click)="loadData()" class="my-class">Search</button>
+
+  </div>
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+  <div class="row" *ngIf="dataLoaded">
+    <div class="column" *ngFor="let item of albums.search.data.albums">
+        <mat-card class="example-card"  style="margin-bottom: 10px;">
+            <mat-card-header>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <mat-card-title>{{item.name}}</mat-card-title>
+              <mat-card-subtitle>Type : {{item.type}}
+                 
+              </mat-card-subtitle>
+            </mat-card-header>
+            <!-- <img mat-card-image src='{{item.links.images.href}}' alt="Photo of a Shiba Inu"> -->
+            <mat-card-content>
+              
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    
+  </div>
+
+  
